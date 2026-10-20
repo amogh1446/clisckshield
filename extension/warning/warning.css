@@ -1,0 +1,120 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+  background-color: #d32f2f;
+  color: #ffffff;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.warning-container {
+  background-color: #b71c1c;
+  max-width: 640px;
+  width: 100%;
+  border-radius: 12px;
+  padding: 40px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.icon-wrapper {
+  font-size: 48px;
+  margin-bottom: 16px;
+}
+
+.warning-title {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  line-height: 1.2;
+}
+
+.warning-subtitle {
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 24px;
+  color: #ffcdd2;
+}
+
+.details-box {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  padding: 18px;
+  margin-bottom: 28px;
+}
+
+.url-label, .reason-label {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #ef9a9a;
+  margin-bottom: 6px;
+}
+
+.target-url {
+  display: block;
+  font-family: monospace;
+  font-size: 14px;
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 8px 12px;
+  border-radius: 4px;
+  word-break: break-all;
+  margin-bottom: 16px;
+}
+
+.reasons-list {
+  padding-left: 20px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #ffebee;
+}
+
+.actions {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.btn {
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: opacity 0.2s;
+}
+
+.btn-primary {
+  background-color: #ffffff;
+  color: #b71c1c;
+}
+
+.btn-primary:hover {
+  background-color: #f5f5f5;
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: #ffcdd2;
+  border: 1px solid #ef9a9a;
+}
+
+.btn-secondary:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.footer {
+  font-size: 12px;
+  color: #ef9a9a;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 16px;
+  text-align: center;
+}

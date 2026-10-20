@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Security Warning — Suspected Phishing</title>
+  <link rel="stylesheet" href="warning.css">
+</head>
+<body>
+  <div class="warning-container">
+    <div class="icon-wrapper">
+      <span class="warning-icon">⚠️</span>
+    </div>
+    
+    <h1 class="warning-title">Deceptive Site Ahead</h1>
+    
+    <p class="warning-subtitle">
+      The site you are trying to visit has been flagged by <strong>PhishGuard AI</strong> as a high-risk phishing attempt designed to steal passwords, financial credentials, or personal information.
+    </p>
+
+    <div class="details-box">
+      <p class="url-label">Target URL:</p>
+      <code id="target-url" class="target-url">https://example-phishing-site.com/login</code>
+      
+      <p class="reason-label">Key Risk Factors Detected:</p>
+      <ul id="risk-reasons" class="reasons-list">
+        <li>Domain closely mimics a recognized service but origin mismatch detected.</li>
+        <li>Contains unencrypted credential capture forms.</li>
+      </ul>
+    </div>
+
+    <div class="actions">
+      <button id="safety-btn" class="btn btn-primary">Back to Safety (Recommended)</button>
+      <button id="proceed-btn" class="btn btn-secondary">Proceed Anyway (Unsafe)</button>
+    </div>
+
+    <footer class="footer">
+      Protected by AI-Powered Phishing Protection &bull; College Mini-Project
+    </footer>
+  </div>
+
+  <script src="warning.js"></script>
+</body>
+</html>

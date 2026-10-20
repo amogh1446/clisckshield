@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Phishing Protection</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="popup-container">
+    <header class="header">
+      <div class="logo-area">
+        <span class="shield-icon">🛡️</span>
+        <h2>PhishGuard AI</h2>
+      </div>
+      <span class="badge" id="system-badge">Standby</span>
+    </header>
+
+    <main class="content">
+      <div class="status-card" id="status-card">
+        <p class="status-title">Current Tab Status</p>
+        <p class="status-value" id="current-url">Loading URL...</p>
+        <div class="risk-meter">
+          <span class="risk-label">Risk Level:</span>
+          <span class="risk-tag risk-unknown" id="risk-tag">Unknown</span>
+        </div>
+      </div>
+
+      <div class="action-section">
+        <button id="scan-btn" class="primary-btn">Analyze Current Page</button>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <p>Phase 1 Scaffolding &bull; v0.1.0</p>
+    </footer>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
