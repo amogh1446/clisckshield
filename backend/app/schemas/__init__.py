@@ -10,6 +10,7 @@ from .analysis import (
     ContentAnalysisRequest,
     ContentAnalysisResponse,
 )
+from .error import ErrorDetail, ErrorResponse
 
 __all__ = [
     "HealthResponse",
@@ -18,4 +19,6 @@ __all__ = [
     "URLAnalysisResponse",
     "ContentAnalysisRequest",
     "ContentAnalysisResponse",
+    "ErrorDetail",
+    "ErrorResponse",
 ]

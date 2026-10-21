@@ -7,17 +7,25 @@ from pydantic import BaseModel, Field
 
 
 class HealthResponse(BaseModel):
-    status: str = Field(..., example="healthy")
-    version: str = Field(..., example="0.1.0")
-    model_loaded: bool = Field(..., example=False)
-    database_connected: bool = Field(..., example=True)
-    environment: str = Field(..., example="development")
+    status: str = Field(..., examples=["healthy"])
+    version: str = Field(..., examples=["0.1.0"])
+    model_loaded: bool = Field(..., examples=[False])
+    database_connected: bool = Field(..., examples=[True])
+    environment: str = Field(..., examples=["development"])
     timestamp: str
 
 
 class URLAnalysisRequest(BaseModel):
-    url: str = Field(..., description="Target destination URL to evaluate", example="http://example.com/login")
-    referrer: Optional[str] = Field(None, description="Referring page origin", example="https://mail.example.com")
+    url: str = Field(
+        ...,
+        description="Target destination URL to evaluate",
+        examples=["http://example.com/login"],
+    )
+    referrer: Optional[str] = Field(
+        None,
+        description="Referring page origin",
+        examples=["https://mail.example.com"],
+    )
     client_timestamp: Optional[str] = Field(None, description="Timestamp from client browser")
 
 
@@ -33,7 +41,7 @@ class URLAnalysisResponse(BaseModel):
     risk_level: str = Field(..., description="Low, Medium, or High")
     is_phishing: bool
     confidence: float = Field(..., ge=0.0, le=1.0)
-    is_mock: bool = Field(True, description="True indicates this is a simulated/placeholder response")
+    is_mock: bool = Field(False, description="True indicates simulated/placeholder response, False indicates live heuristic or ML evaluation")
     top_indicators: List[IndicatorItem] = Field(default_factory=list)
     evaluated_at: str
 
