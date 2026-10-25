@@ -3,40 +3,81 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Security Warning — Suspected Phishing</title>
+  <title>Security Alert — Suspected Phishing Intercepted</title>
   <link rel="stylesheet" href="warning.css">
 </head>
 <body>
-  <div class="warning-container">
-    <div class="icon-wrapper">
-      <span class="warning-icon">⚠️</span>
-    </div>
-    
-    <h1 class="warning-title">Deceptive Site Ahead</h1>
-    
-    <p class="warning-subtitle">
-      The site you are trying to visit has been flagged by <strong>PhishGuard AI</strong> as a high-risk phishing attempt designed to steal passwords, financial credentials, or personal information.
-    </p>
+  <div class="warning-wrapper">
+    <div class="warning-card">
+      <!-- Shield Alert Header -->
+      <div class="alert-header">
+        <div class="shield-badge">
+          <img src="../icons/icon-48.png" alt="ClickShield Shield" class="shield-img">
+          <span class="alert-icon">⚠️</span>
+        </div>
+        <div class="header-titles">
+          <span class="product-tag">ClickShield Phishing Defense</span>
+          <h1 class="main-title">Deceptive Site Intercepted</h1>
+        </div>
+      </div>
 
-    <div class="details-box">
-      <p class="url-label">Target URL:</p>
-      <code id="target-url" class="target-url">https://example-phishing-site.com/login</code>
-      
-      <p class="reason-label">Key Risk Factors Detected:</p>
-      <ul id="risk-reasons" class="reasons-list">
-        <li>Domain closely mimics a recognized service but origin mismatch detected.</li>
-        <li>Contains unencrypted credential capture forms.</li>
-      </ul>
-    </div>
+      <!-- Warning Description -->
+      <p class="warning-desc">
+        ClickShield has flagged the destination below as a high-risk phishing attempt designed to steal credentials, banking details, or sensitive personal data.
+      </p>
 
-    <div class="actions">
-      <button id="safety-btn" class="btn btn-primary">Back to Safety (Recommended)</button>
-      <button id="proceed-btn" class="btn btn-secondary">Proceed Anyway (Unsafe)</button>
-    </div>
+      <!-- Target URL Box -->
+      <div class="target-container">
+        <div class="target-meta">
+          <span class="target-label">Flagged Destination:</span>
+          <span id="risk-pill" class="risk-pill pill-danger">High Risk</span>
+        </div>
+        <div class="url-code-wrapper">
+          <code id="target-url" class="target-code">Resolving destination URL...</code>
+        </div>
+      </div>
 
-    <footer class="footer">
-      Protected by AI-Powered Phishing Protection &bull; College Mini-Project
-    </footer>
+      <!-- Detection Reasons Box -->
+      <div class="reasons-container">
+        <div class="reasons-header">
+          <span class="reasons-title">Detected Threat Indicators:</span>
+          <span id="source-badge" class="source-badge">Pre-Click Link Interception</span>
+        </div>
+        <ul id="reasons-list" class="reasons-list">
+          <li>Analyzing risk factors...</li>
+        </ul>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="actions">
+        <button id="safety-btn" class="btn btn-safety">
+          <span class="btn-icon">🛡️</span>
+          <span>Back to Safety (Recommended)</span>
+        </button>
+      </div>
+
+      <!-- Advanced / Bypass Disclosure Accordion -->
+      <div class="advanced-section">
+        <button id="advanced-toggle-btn" class="advanced-toggle" type="button">
+          <span>Advanced Details & Risk Bypass</span>
+          <span id="advanced-caret" class="caret">▼</span>
+        </button>
+
+        <div id="advanced-content" class="advanced-content" style="display: none;">
+          <p class="advisory-text">
+            Bypassing this warning will allow your browser to navigate directly to the unverified target. Any passwords or credentials you enter on that site could be captured by unauthorized parties.
+          </p>
+          <button id="proceed-btn" class="btn btn-proceed" type="button">
+            <span>Proceed Anyway (Unsafe)</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Footer Note -->
+      <footer class="footer">
+        <span>ClickShield AI-Powered Protection &bull; Zero sensitive data collected or stored</span>
+      </footer>
+    </div>
   </div>
 
   <script src="warning.js"></script>
