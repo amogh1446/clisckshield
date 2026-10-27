@@ -3,39 +3,135 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Phishing Protection</title>
+  <title>ClickShield Phishing Protection</title>
   <link rel="stylesheet" href="popup.css">
 </head>
 <body>
-  <div class="popup-container">
+  <div class="popup-wrapper">
+    <!-- Header -->
     <header class="header">
-      <div class="logo-area">
-        <span class="shield-icon">🛡️</span>
-        <h2>PhishGuard AI</h2>
+      <div class="brand">
+        <img src="../icons/icon-32.png" alt="ClickShield" class="brand-icon">
+        <div class="brand-text">
+          <span class="brand-title">ClickShield</span>
+          <span class="brand-subtitle">AI Threat Defense</span>
+        </div>
       </div>
-      <span class="badge" id="system-badge">Standby</span>
+      <div class="header-status">
+        <span id="protection-status-badge" class="status-pill status-active">Active</span>
+      </div>
     </header>
 
-    <main class="content">
-      <div class="status-card" id="status-card">
-        <p class="status-title">Current Tab Status</p>
-        <p class="status-value" id="current-url">Loading URL...</p>
-        <div class="risk-meter">
-          <span class="risk-label">Risk Level:</span>
-          <span class="risk-tag risk-unknown" id="risk-tag">Unknown</span>
+    <!-- Master Protection Toggle -->
+    <div class="toggle-card">
+      <div class="toggle-info">
+        <span class="toggle-title">Real-Time Protection</span>
+        <span class="toggle-desc">Pre-click checks & DOM inspection</span>
+      </div>
+      <label class="switch">
+        <input type="checkbox" id="protection-toggle" checked>
+        <span class="slider round"></span>
+      </label>
+    </div>
+
+    <!-- Active Tab Target Card -->
+    <main class="main-content">
+      <div class="card target-card">
+        <div class="card-header">
+          <span class="card-label">CURRENT DESTINATION</span>
+          <span id="tab-protocol-badge" class="protocol-badge">HTTPS</span>
+        </div>
+        <p id="current-url" class="target-url" title="Loading URL...">Resolving active tab...</p>
+      </div>
+
+      <!-- Risk Evaluation Card -->
+      <div id="risk-card" class="card risk-card">
+        <div class="risk-summary">
+          <div class="risk-info">
+            <span class="risk-sub">Threat Assessment</span>
+            <div class="risk-title-row">
+              <span id="risk-level-tag" class="risk-tag risk-unknown">Scanning</span>
+              <span id="risk-score-text" class="risk-score-text">--%</span>
+            </div>
+          </div>
+          <div class="risk-meter-wrapper">
+            <div class="meter-bar-bg">
+              <div id="risk-meter-fill" class="meter-bar-fill meter-unknown" style="width: 0%;"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Evaluation Source Tag -->
+        <div class="engine-meta">
+          <span class="meta-label">Engine:</span>
+          <span id="engine-source-tag" class="meta-value">FastAPI Heuristics</span>
+        </div>
+
+        <!-- Threat Indicators List -->
+        <div class="indicators-section">
+          <span class="section-title">Detected Indicators:</span>
+          <ul id="threat-indicators-list" class="indicators-list">
+            <li class="indicator-placeholder">Analyzing page and URL structure...</li>
+          </ul>
         </div>
       </div>
 
-      <div class="action-section">
-        <button id="scan-btn" class="primary-btn">Analyze Current Page</button>
+      <!-- Internal Browser Page Notice (Hidden by default) -->
+      <div id="internal-page-card" class="card internal-card" style="display: none;">
+        <div class="internal-icon">🛡️</div>
+        <div class="internal-text">
+          <p class="internal-title">Browser System Page</p>
+          <p class="internal-desc">ClickShield protects web navigation. Internal browser controls are automatically secured.</p>
+        </div>
+      </div>
+
+      <!-- Action Button -->
+      <div class="actions">
+        <button id="scan-now-btn" class="btn btn-primary">
+          <span id="scan-btn-icon">⚡</span>
+          <span id="scan-btn-text">Re-Scan Page</span>
+        </button>
+      </div>
+
+      <!-- Backend Connection Status Bar -->
+      <div class="backend-status-card">
+        <div class="backend-status-indicator">
+          <span id="backend-dot" class="dot dot-amber"></span>
+          <span id="backend-status-text" class="backend-text">Checking backend service...</span>
+        </div>
+        <button id="toggle-settings-btn" class="settings-toggle-btn" title="Configure API">⚙️</button>
+      </div>
+
+      <!-- Collapsible Settings Panel -->
+      <div id="settings-panel" class="settings-panel" style="display: none;">
+        <p class="settings-header">Service Configuration</p>
+        <div class="setting-row">
+          <label for="api-url-input" class="setting-label">FastAPI Base URL:</label>
+          <input type="text" id="api-url-input" class="text-input" placeholder="http://127.0.0.1:8000/api/v1">
+        </div>
+        <div class="setting-row toggle-inline">
+          <span class="setting-label">Force Local Mock Engine:</span>
+          <label class="switch switch-sm">
+            <input type="checkbox" id="mock-toggle">
+            <span class="slider round"></span>
+          </label>
+        </div>
+        <div class="settings-actions">
+          <button id="save-settings-btn" class="btn btn-sm btn-accent">Save & Verify</button>
+        </div>
       </div>
     </main>
 
+    <!-- Footer Stats -->
     <footer class="footer">
-      <p>Phase 1 Scaffolding &bull; v0.1.0</p>
+      <div class="stats-row">
+        <span>Scans: <strong id="stat-scans">0</strong></span>
+        <span>Threats Intercepted: <strong id="stat-threats">0</strong></span>
+      </div>
     </footer>
   </div>
 
+  <script src="../core/detection-adapter.js"></script>
   <script src="popup.js"></script>
 </body>
 </html>
